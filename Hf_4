@@ -1,0 +1,45 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int N;
+    ifstream in("input.txt");
+    ofstream on ("lnko.out");
+    in >> N;
+    int v[N][N];
+    int i,j ;
+    for (i=0;i<N;i++){
+            for (j=0;j<N;j++){
+            in>>v[i][j];
+
+            }
+    }
+    int K=0,Ny=0;
+
+    for (i=0;i<N;i++){
+            for (j=0;j<N;j++){
+
+                if(i<j && i+j>N-1){
+                    K=K+v[i][j];
+                }
+                if(i>j && i+j<N-1){
+                    Ny=Ny+v[i][j];
+                }
+
+            }
+    }
+    while(K!=Ny){
+        if(K>Ny){
+            K=K-Ny;
+        } else {
+            Ny=Ny-K;
+        }
+    }
+    on << K;
+
+    in.close();
+    on.close();
+    return 0;
+}
