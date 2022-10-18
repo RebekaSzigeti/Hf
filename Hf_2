@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int N, x,szamjegy;
+    ifstream in("input.txt");
+    ofstream on("fib.out");
+    in >> N;
+    x = N%10;
+    while(N>0){
+        szamjegy = N%10;
+        if(szamjegy>x){
+            x=szamjegy;
+        }
+        N=N/10;
+    }
+
+    int i,v[1000];
+    v[1]=1;
+    v[2]=1;
+    for(i=3;i<(x+2);i++){
+        v[i]=v[i-1]+v[i-2];
+    }
+    cout << v[x];
+    on << v[x] << endl;
+    return 0;
+}
