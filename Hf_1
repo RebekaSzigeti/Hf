@@ -1,0 +1,45 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    int N, max, v[100], i;
+    ifstream in("input.txt");
+    ofstream out("oszto.out");
+    in >> N;
+    for(i=0;i<N;i++){
+        in >> v[i];
+    }
+    int S=0;
+    for (i=0;i<N;i++){
+        S=S+v[i];
+    }
+    double a;
+    a=S/N;
+    max=v[0];
+    for(i=0;i<N;i++){
+        if(v[i]>max){
+            max=v[i];
+        }
+    }
+    int k;
+    k=max;
+    int hatvany=1;
+    while(k>0){
+        hatvany=hatvany*10;
+        k=k/10;
+    }
+    int ujszam=0,o;
+    ujszam = a*hatvany+max;
+    for(i=2;i<ujszam;i++){
+        if(ujszam%i==0){
+            o=i;
+        }
+    }
+    out << o;
+    in.close();
+    out.close();
+
+    return 0;
+}
