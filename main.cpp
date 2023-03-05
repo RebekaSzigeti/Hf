@@ -2,21 +2,18 @@
 
 using namespace std;
 
-int joc(int n){
-    int s=0,i;
-    for(i=2;i<=n;i++){
-        if(n%i==0){
-            s++;
-        }
-    }
-    return s;
+int Hanoi(int k){
+    if(k==1){return 1;}
+    if(k==2){return 3;}
+    return 2*Hanoi(k-1)+1;
 
 }
 
 int main()
 {
-    int n;
-    cin >> n;
-    cout << joc(n);
+    int k;
+    cin >>k;
+    cout << Hanoi(k);
+
     return 0;
 }
