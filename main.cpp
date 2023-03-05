@@ -2,11 +2,14 @@
 
 using namespace std;
 
-void cuburi(int n){
-    int i;
-    for(i=n;i>0;i--){
-        cout << i*i*i<< " ";
+int joc(int n){
+    int s=0,i;
+    for(i=2;i<=n;i++){
+        if(n%i==0){
+            s++;
+        }
     }
+    return s;
 
 }
 
@@ -14,6 +17,6 @@ int main()
 {
     int n;
     cin >> n;
-    cuburi(n);
+    cout << joc(n);
     return 0;
 }
